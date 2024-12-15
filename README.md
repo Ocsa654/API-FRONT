@@ -16,7 +16,7 @@ BIEN aqui se detallara el proceso que se uso o como esta estructurado el proyect
 ### Dashboard
 - Muestra información personalizada para el usuario autenticado.
 ### ENCABEZADO
-![ENCABEZADO DE USUARIO](ss/header.png)
+![ENCABEZADO DE USUARIO](./src/app/ss/header.png)
 
 ```javascript
 function Header() {
