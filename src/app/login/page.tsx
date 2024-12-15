@@ -34,7 +34,6 @@ export default function LoginPage() {
                             onChange={(e) => setCorreoElectronico(e.target.value)}
                         />
                     </div>
-
                     <div>
                         <label htmlFor="contraseña" className="block text-gray-700 font-bold mb-2">Contraseña</label> {/* Added label */}
                         <input
