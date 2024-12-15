@@ -30,7 +30,7 @@ export function Header() {
                         <div className="flex items-center relative" ref={dropdownRef}>
                             <button
                                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                                className="focus:outline-none" // Elimina el contorno azul al enfocar con el teclado.
+                                className="focus:outline-none" 
                                 aria-label="Abrir opciones de usuario"
                             >
                                 {user.url_imagenPerfil ? (
@@ -55,7 +55,7 @@ export function Header() {
                                 </div>
                             )}
 
-                            <div className="ml-4"> {/* Espacio entre la imagen y el nombre */}
+                            <div className="ml-4"> {}
                                 <span className="font-semibold text-gray-300">{user.nombre} {user.apellido}</span>
                                 <span className="text-sm text-gray-400">{user.correo_electronico}</span>
                             </div>

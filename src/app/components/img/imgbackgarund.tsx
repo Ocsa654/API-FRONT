@@ -1,4 +1,3 @@
-// Ruta: C:\Users\ke451\OneDrive\Documentos\APIS-Consumo\src\app\components\img\imgbackground.tsx
 
 import Image from 'next/image';
 

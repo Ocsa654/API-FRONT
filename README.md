@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend de la API
+BIEN aqui se detallara el proceso que se uso o como esta estructurado el proyecto del frontend de la api
 
-## Getting Started
+## PROCEDIMIENTO
 
-First, run the development server:
+- **Autenticación de Usuarios**: Sistema de login y manejo de sesiones utilizando tokens.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **ENVIRONMENT VARIABLES**: Se utilizara variables de entorno para poder identificar los tokens generados en el
+                             NEXT_PUBLIC_API_URL=http://localhost:8000/api
+                             NEXT_PUBLIC_MASTER_TOKEN=1|BAGMB7jlXOp9baUgavjMDEtc0HuYY6dtb85D7yV914f3a4c6
+
+### Sistema de Autenticación
+- Implementa un sistema de login seguro.
+- Utiliza tokens  para manejar las sesiones de usuario.
+
+### Dashboard
+- Muestra información personalizada para el usuario autenticado.
+### ENCABEZADO
+![ENCABEZADO DE USUARIO](D:/Desktop/front/APIS-consumo2/public/ss/header.png)
+
+```javascript
+function Header() {
+   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+   const { user, logout } = useAuth()
+   const dropdownRef = useRef(null)
+
+   return (
+       user && (
+           <div ref={dropdownRef}>
+               <button onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                   {user.url_imagenPerfil ? <img src={user.url_imagenPerfil} alt="Foto" /> : <FaUserCircle />}
+               </button>
+               {isDropdownOpen && (
+                   <div>
+                       <button onClick={logout}>
+                           <FaSignOutAlt /> Cerrar Sesión
+                       </button>
+                   </div>
+               )}
+               <div>
+                   <span>{user.nombre} {user.apellido}</span>
+                   <span>{user.correo_electronico}</span>
+               </div>
+           </div>
+       )
+   )
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Incluye nuestras 2 tablas de gestion tanto de usuarios como de canciones.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Gestión de Usuarios
+- Permite agregar nuevos usuarios con un formulario interactivo.
+- Ofrece la capacidad de editar información de usuarios existentes.
+- Implementa validación de formularios y manejo de errores.
 
-## Learn More
+## Capturas de Pantalla
 
-To learn more about Next.js, take a look at the following resources:
+### Página de Inicio
+![Página de Inicio](https://github.com/K451AKM/APIS-consumo2/blob/master/pagina%20inicio.jpg)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Página de Login
+![Página de Login](https://github.com/K451AKM/APIS-consumo2/blob/master/login.jpg)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Dashboard
+![Dashboard](https://github.com/K451AKM/APIS-consumo2/blob/master/ds.jpg)
 
-## Deploy on Vercel
+### Gestión de Usuarios
+![Lista de Usuarios](https://github.com/K451AKM/APIS-consumo2/blob/master/usersC.jpg)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### Acciones de Usuario
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Agregar Usuario**
+- ![Agregar Usuario](https://github.com/K451AKM/APIS-consumo2/blob/master/agregarUsuario.jpg)
+
+**Editar Usuario**
+- ![Editar Usuario](https://github.com/K451AKM/APIS-consumo2/blob/master/usuarioEditado.jpg)
+
+**Ver Usuario**
+- ![Ver Usuario](https://github.com/K451AKM/APIS-consumo2/blob/master/verUsuario.jpg)
+
+**Eliminar Usuario**
+- ![Eliminar Usuario](https://github.com/K451AKM/APIS-consumo2/blob/master/eliminarUsuario.jpg)
+
+### Gestión de Pokémones
+![Lista de Pokémones](https://github.com/K451AKM/APIS-consumo2/blob/master/pokemones.jpg)
+
+#### Acciones de Pokémones
+
+**Agregar Pokémon**
+- ![Agregar Pokémon](https://github.com/K451AKM/APIS-consumo2/blob/master/agregarPokemon.jpg)
+
+**Ver Pokémon**
+- ![Ver Pokémon](https://github.com/K451AKM/APIS-consumo2/blob/master/verpokemon.jpg)
+
+**Editar Pokémon**
+- ![Editar Pokémon](https://github.com/K451AKM/APIS-consumo2/blob/master/editar%20pokemon.jpg)
+
+**Eliminar Pokémon**
+- ![Eliminar Pokémon](https://github.com/K451AKM/APIS-consumo2/blob/master/eliminarpokemon.jpg)
