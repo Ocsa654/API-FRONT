@@ -16,7 +16,7 @@ BIEN aqui se detallara el proceso que se uso o como esta estructurado el proyect
 ### Dashboard
 - Muestra información personalizada para el usuario autenticado.
 ### ENCABEZADO
-![ENCABEZADO DE USUARIO](APIS-consumo2\public\ss\header.png)
+![ENCABEZADO DE USUARIO](ss/header.png)
 
 ```javascript
 function Header() {
